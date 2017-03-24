@@ -7,12 +7,14 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class PanelDibujoISR extends JPanel{
+public class PanelDibujoISR extends JPanel implements ActionListener{
 	
 	//private String saludo=;
 	private JButton btIndividual,
@@ -22,7 +24,7 @@ public class PanelDibujoISR extends JPanel{
 	private Frame ventanaISR;
 		public PanelDibujoISR(VentanaISR frame){
 				super();
-				//t
+				this.ventanaISR=frame;
 				this.setPreferredSize(new Dimension(1000,400));
 				this.setBackground(Color.GRAY);
 				//this.setLayout(null);
@@ -30,7 +32,7 @@ public class PanelDibujoISR extends JPanel{
 				
 				this.saludo= new Label("¡Bienvenido a la calculadora de ISR!",Label.CENTER);
 				this.setFont(new Font("Arial",Font.BOLD,36));
-				this.saludo.setForeground(new Color(0xffffdd));
+				this.saludo.setForeground(Color.WHITE);
 				this.saludo.setBackground(Color.GRAY);
 				this.saludo.setPreferredSize(new Dimension(800, 200));
 				this.add(saludo);
@@ -41,6 +43,7 @@ public class PanelDibujoISR extends JPanel{
 				this.btIndividual.setPreferredSize(new Dimension(300, 150));
 				//this.btIndividual.setBounds(100,200,300,150);
 				this.btIndividual.setBackground(Color.WHITE);
+				this.btIndividual.addActionListener(this);
 				this.add(btIndividual);
 				
 				
@@ -59,4 +62,11 @@ public class PanelDibujoISR extends JPanel{
 			g.setFont(new Font("Arial",Font.BOLD,36));
 			g.drawString(saludo, (this.getWidth()/2)-280,(this.getHeight()/2)-80);
 		}*/
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if(e.getSource()==this.btIndividual){
+				this.ventanaISR.setVisible(false);
+			}
+			
+		}
 }
