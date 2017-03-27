@@ -52,6 +52,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 				this.btMultiples.setPreferredSize(new Dimension(300, 150));
 				//this.btMultiples.setBounds(600,200,300,150);
 				this.btMultiples.setBackground(Color.WHITE);
+				this.btMultiples.addActionListener(this);
 				this.add(btMultiples);
 				
 				
@@ -65,6 +66,10 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==this.btIndividual){
+				this.ventanaISR.setVisible(false);
+			}
+			
+			else if(e.getSource()==this.btMultiples){
 				this.ventanaISR.setVisible(false);
 			}
 			

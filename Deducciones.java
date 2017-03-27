@@ -39,8 +39,43 @@ public class Deducciones {
 		}
 	}
 	public void totalIngresosGravados(){
-		
+		this.totalIngresosGravados=this.ingresoAnual+this.aguinaldoGravado+this.primaVacacionalGravada;
 	}
+	public void maximoDeducirColegiatura(){
+		if(this.a.getNivelEducativo().equals("Preescolar")){
+			this.maximoDeducirColegiatura=14200;
+		}
+		else if(this.a.getNivelEducativo().equals("Primaria")){
+			this.maximoDeducirColegiatura=12900;
+		}
+		else if(this.a.getNivelEducativo().equals("Secundaria")){
+			this.maximoDeducirColegiatura=19900;
+		}
+		else if(this.a.getNivelEducativo().equals("Profesiona Tecnico")){
+			this.maximoDeducirColegiatura=17100;
+		}
+		else if(this.a.getNivelEducativo().equals("Bachillerato")){
+			this.maximoDeducirColegiatura=2500;
+		}
+		else{
+			this.maximoDeducirColegiatura=0;
+		}
+	}
+	public void totalDeduccionesSnR(){
+		if (a.getColegiatura()<this.maximoDeducirColegiatura){
+		this.totalDeduccionesSnR=a.getMedicos()+a.getFunerarios()+a.getSggm()+a.getHipotecarios()+a.getDonativos()+a.getTransporte()+a.getColegiatura();
+		}
+		else {
+			this.totalDeduccionesSnR=a.getMedicos()+a.getFunerarios()+a.getSggm()+a.getHipotecarios()+a.getDonativos()+a.getTransporte()+this.maximoDeducirColegiatura;
+		}
+	}
+	public void deduccionesPermitidas(){
+		this.deduccionesPermitidas=(this.ingresoAnual+this.totalDeduccionesSnR)*0.1;
+	}
+	public void montoSobreElCualSeCalculaISR(){
+		this.montoSobreElCualSeCalculaISR=this.totalIngresosGravados-this.deduccionesPermitidas;
+	}
+	/*
 	public void(){
 		
 	}
@@ -51,20 +86,5 @@ public class Deducciones {
 	
 	public void(){
 		
-	}
-	
-	public void(){
-		
-	}
-	
-	public void(){
-		
-	}
-	
-	public void(){
-		
-	}
-	
-	public void(){
-		
+	}*/
 }
