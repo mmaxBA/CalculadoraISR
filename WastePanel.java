@@ -4,9 +4,9 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 
 public class WastePanel extends JPanel{
-	public WastePanel(){
+	public WastePanel(int x, int y){
 		super();
-		this.setPreferredSize(new Dimension(1000,200));
+		this.setPreferredSize(new Dimension(x,y));
 		this.setBackground(Color.GRAY);
 	}
 }

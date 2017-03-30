@@ -14,9 +14,9 @@ public class VentanaISR extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		PanelDibujoISR pd = new PanelDibujoISR(this);
 		this.add(pd,BorderLayout.CENTER);
-		WastePanel wpA = new WastePanel();
+		WastePanel wpA = new WastePanel(1000,200);
 		this.add(wpA,BorderLayout.NORTH);
-		WastePanel wpB = new WastePanel();
+		WastePanel wpB = new WastePanel(1000,200);
 		this.add(wpB,BorderLayout.SOUTH);
 		this.pack();
 		this.setVisible(true);
