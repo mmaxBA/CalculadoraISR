@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Label;
 
 import javax.swing.ButtonGroup;
@@ -136,6 +137,8 @@ public class PanelPersona extends JPanel{
 		this.rbsecundaria = new JRadioButton("Secundaria");
 		this.rbprepa = new JRadioButton("Bachillerato");
 		this.rbninguno = new JRadioButton("Ninguno",true);
+		
+		//GridLayout grid = new GridLayout(0,2,10,10);
 		
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(this.rbpreescolar);
