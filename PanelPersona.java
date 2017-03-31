@@ -17,160 +17,191 @@ import javax.swing.JTextField;
 
 public class PanelPersona extends JPanel{
 	
-	private JButton btcalcular;
-	private JTextField  tfnombre,
-						tfrfc,
-						tfmensual,
-						tfprimavac,
-						tfmedico,
-						tffunerarios,
-						tfseguro,
-						tfhipoteca,
-						tfdonativos,
-						tfsubcuenta,
-						tftranspesc,
-						tfniveledu,
-						tfcolegiatura;
-	private Label lbnombre,
-					lbrfc,
-					lbinstruc,
-					lbmensual,
-					lbprimavac,
-					lbmedico,
-					lbfunerarios,
-					lbseguro,
-					lbhipoteca,
-					lbdonativos,
-					lbsubcuenta,
-					lbtranspesc,
-					lbniveledu,
-					lbcolegiatura;
-	private JFrame ventana;
-	private JRadioButton rbsecundaria,
-						rbprepa,
-						rbprimaria,
-						rbpreescolar,
-						rbninguno;
+	private JButton btCalcular;
+	private JTextField  tfNombre,
+						tfRfc,
+						tfMensual,
+						tfPrimaVac,
+						tfMedico,
+						tfFunerarios,
+						tfSeguro,
+						tfHipoteca,
+						tfDonativos,
+						tfSubCuenta,
+						tfTranspEsc,
+						tfNivelEdu,
+						tfColegiatura;
+	private Label lbNombre,
+					lbRfc,
+					lbInstruc,
+					lbMensual,
+					lbPrimaVac,
+					lbMedico,
+					lbFunerarios,
+					lbSeguro,
+					lbHipoteca,
+					lbDonativos,
+					lbSubCuenta,
+					lbTranspEsc,
+					lbNivelEdu,
+					lbColegiatura;
+	private VentanaPersona venPersona;
+	private JRadioButton rbSecundaria,
+						rbPrepa,
+						rbPrimaria,
+						rbPreescolar,
+						rbNinguno;
 	
 	public PanelPersona(VentanaPersona vp){
 		super();
-		this.ventana=vp;
+		this.venPersona=vp;
 		this.setPreferredSize(new Dimension(900,420));
-		this.setBackground(Color.GRAY);
+		this.setBackground(Color.WHITE);
 		
-		this.lbinstruc = new Label("Ingrese los valores numericos a los apartados correspondientes",Label.CENTER);
-		this.setFont(new Font("Arial",Font.BOLD,20));
-		this.lbinstruc.setForeground(Color.WHITE);
-		this.lbinstruc.setBackground(Color.GRAY);
-		this.lbinstruc.setPreferredSize(new Dimension(800,110));
-		this.add(this.lbinstruc);
+		this.lbInstruc = new Label("Ingrese los valores numericos en los apartados correspondientes",Label.CENTER);
+		this.setFont(new Font("Arial",Font.BOLD,25));
+		this.lbInstruc.setForeground(Color.BLACK);
+		this.lbInstruc.setBackground(Color.WHITE);
+		this.lbInstruc.setPreferredSize(new Dimension(800,110));
+		this.add(this.lbInstruc);
 		
-		this.lbnombre = new Label("Nombre");
-		this.lbnombre.setPreferredSize(new Dimension(225,40));
-		this.tfnombre = new JTextField(10);
-		this.tfnombre.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbnombre);
-		this.add(this.tfnombre);
+		this.lbNombre = new Label("Nombre");
+		this.lbNombre.setPreferredSize(new Dimension(225,40));
+		this.lbNombre.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbrfc = new Label("RFC");
-		this.lbrfc.setPreferredSize(new Dimension(225,40));
-		this.tfrfc = new JTextField(10);
-		this.tfrfc.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbrfc);
-		this.add(this.tfrfc);
+		this.tfNombre = new JTextField(10);
+		this.tfNombre.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbNombre);
+		this.add(this.tfNombre);
 		
-		this.lbmensual = new Label("Ingreso Mensual");
-		this.lbmensual.setPreferredSize(new Dimension(225,40));
-		this.tfmensual = new JTextField(10);
-		this.tfmensual.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbmensual);
-		this.add(this.tfmensual);
+		this.lbRfc = new Label("RFC");
+		this.lbRfc.setPreferredSize(new Dimension(225,40));
+		this.lbRfc.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbprimavac = new Label("Prima Vacacional");
-		this.lbprimavac.setPreferredSize(new Dimension(225,40));
-		this.tfprimavac = new JTextField(10);
-		this.tfprimavac.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbprimavac);
-		this.add(this.tfprimavac);
+		this.tfRfc = new JTextField(10);
+		this.tfRfc.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbRfc);
+		this.add(this.tfRfc);
 		
-		this.lbmedico = new Label("Gastos Medico");
-		this.lbmedico.setPreferredSize(new Dimension(225,40));
-		this.tfmedico = new JTextField(10);
-		this.tfmedico.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbmedico);
-		this.add(this.tfmedico);
+		this.lbMensual = new Label("Ingreso Mensual");
+		this.lbMensual.setPreferredSize(new Dimension(225,40));
+		this.lbMensual.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbfunerarios = new Label("Gastos Funerarios");
-		this.lbfunerarios.setPreferredSize(new Dimension(225,40));
-		this.tffunerarios = new JTextField(10);
-		this.tffunerarios.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbfunerarios);
-		this.add(this.tffunerarios);
+		this.tfMensual = new JTextField(10);
+		this.tfMensual.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbMensual);
+		this.add(this.tfMensual);
 		
-		this.lbseguro = new Label("Seguro");
-		this.lbseguro.setPreferredSize(new Dimension(225,40));
-		this.tfseguro = new JTextField(10);
-		this.tfseguro.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbseguro);
-		this.add(this.tfseguro);
+		this.lbPrimaVac = new Label("Prima Vacacional");
+		this.lbPrimaVac.setPreferredSize(new Dimension(225,40));
+		this.lbPrimaVac.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbhipoteca = new Label("Hipoteca");
-		this.lbhipoteca.setPreferredSize(new Dimension(225,40));
-		this.tfhipoteca = new JTextField(10);
-		this.tfhipoteca.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbhipoteca);
-		this.add(this.tfhipoteca);
+		this.tfPrimaVac = new JTextField(10);
+		this.tfPrimaVac.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbPrimaVac);
+		this.add(this.tfPrimaVac);
 		
-		this.lbdonativos = new Label("Donativos");
-		this.lbdonativos.setPreferredSize(new Dimension(225,40));
-		this.tfdonativos = new JTextField(10);
-		this.tfdonativos.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbdonativos);
-		this.add(this.tfdonativos);
+		this.lbMedico = new Label("Gastos Medico");
+		this.lbMedico.setPreferredSize(new Dimension(225,40));
+		this.lbMedico.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbsubcuenta = new Label("Subcuenta de Retiro");
-		this.lbsubcuenta.setPreferredSize(new Dimension(225,40));
-		this.tfsubcuenta = new JTextField(10);
-		this.tfsubcuenta.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbsubcuenta);
-		this.add(this.tfsubcuenta);
+		this.tfMedico = new JTextField(10);
+		this.tfMedico.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbMedico);
+		this.add(this.tfMedico);
 		
-		this.lbtranspesc = new Label("Transporte Escolar");
-		this.lbtranspesc.setPreferredSize(new Dimension(225,40));
-		this.tftranspesc = new JTextField(10);
-		this.tftranspesc.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbtranspesc);
-		this.add(this.tftranspesc);
+		this.lbFunerarios = new Label("Gastos Funerarios");
+		this.lbFunerarios.setPreferredSize(new Dimension(225,40));
+		this.lbFunerarios.setFont(new Font("Arial",Font.BOLD,20));
 		
-		this.lbcolegiatura = new Label("Colegiatura");
-		this.lbcolegiatura.setPreferredSize(new Dimension(225,40));
-		this.tfcolegiatura = new JTextField(10);
-		this.tfcolegiatura.setPreferredSize(new Dimension(225,20));
-		this.add(this.lbcolegiatura);
-		this.add(this.tfcolegiatura);
+		this.tfFunerarios = new JTextField(10);
+		this.tfFunerarios.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbFunerarios);
+		this.add(this.tfFunerarios);
 		
-		this.lbniveledu = new Label("Nivel Educativo");
-		this.lbniveledu.setPreferredSize(new Dimension(225,40));
-		this.rbpreescolar = new JRadioButton("Preescolar");
-		this.rbprimaria = new JRadioButton("Primaria");
-		this.rbsecundaria = new JRadioButton("Secundaria");
-		this.rbprepa = new JRadioButton("Bachillerato");
-		this.rbninguno = new JRadioButton("Ninguno",true);
+		this.lbSeguro = new Label("Seguro");
+		this.lbSeguro.setPreferredSize(new Dimension(225,40));
+		this.lbSeguro.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.tfSeguro = new JTextField(10);
+		this.tfSeguro.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbSeguro);
+		this.add(this.tfSeguro);
+		
+		this.lbHipoteca = new Label("Hipoteca");
+		this.lbHipoteca.setPreferredSize(new Dimension(225,40));
+		this.lbHipoteca.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.tfHipoteca = new JTextField(10);
+		this.tfHipoteca.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbHipoteca);
+		this.add(this.tfHipoteca);
+		
+		this.lbDonativos = new Label("Donativos");
+		this.lbDonativos.setPreferredSize(new Dimension(225,40));
+		this.lbDonativos.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.tfDonativos = new JTextField(10);
+		this.tfDonativos.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbDonativos);
+		this.add(this.tfDonativos);
+		
+		this.lbSubCuenta = new Label("Subcuenta de Retiro");
+		this.lbSubCuenta.setPreferredSize(new Dimension(225,40));
+		this.lbSubCuenta.setFont(new Font("Arial",Font.BOLD,20));
+				
+		this.tfSubCuenta = new JTextField(10);
+		this.tfSubCuenta.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbSubCuenta);
+		this.add(this.tfSubCuenta);
+		
+		this.lbTranspEsc = new Label("Transporte Escolar");
+		this.lbTranspEsc.setPreferredSize(new Dimension(225,40));
+		this.lbTranspEsc.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.tfTranspEsc = new JTextField(10);
+		this.tfTranspEsc.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbTranspEsc);
+		this.add(this.tfTranspEsc);
+		
+		this.lbColegiatura = new Label("Colegiatura");
+		this.lbColegiatura.setPreferredSize(new Dimension(225,40));
+		this.lbColegiatura.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.tfColegiatura = new JTextField(10);
+		this.tfColegiatura.setPreferredSize(new Dimension(225,20));
+		this.add(this.lbColegiatura);
+		this.add(this.tfColegiatura);
+		
+		this.lbNivelEdu = new Label("Nivel Educativo");
+		this.lbNivelEdu.setPreferredSize(new Dimension(225,40));
+		this.lbNivelEdu.setFont(new Font("Arial",Font.BOLD,20));
+		
+		this.rbNinguno = new JRadioButton("Ninguno",true);
+		this.rbNinguno.setBackground(Color.WHITE);
+		this.rbPreescolar = new JRadioButton("Preescolar");
+		this.rbPreescolar.setBackground(Color.WHITE);
+		this.rbPrimaria = new JRadioButton("Primaria");
+		this.rbPrimaria.setBackground(Color.WHITE);
+		this.rbSecundaria = new JRadioButton("Secundaria");
+		this.rbSecundaria.setBackground(Color.WHITE);
+		this.rbPrepa = new JRadioButton("Bachillerato");
+		this.rbPrepa.setBackground(Color.WHITE);
 		
 		
 		ButtonGroup bg = new ButtonGroup();
-		bg.add(this.rbpreescolar);
-		bg.add(this.rbprepa);
-		bg.add(this.rbprimaria);
-		bg.add(this.rbsecundaria);
-		bg.add(this.rbninguno);
+		bg.add(this.rbPreescolar);
+		bg.add(this.rbPrepa);
+		bg.add(this.rbPrimaria);
+		bg.add(this.rbSecundaria);
+		bg.add(this.rbNinguno);
 		
-		this.add(lbniveledu);
-		this.add(this.rbninguno);
-		this.add(this.rbpreescolar);
-		this.add(this.rbprepa);
-		this.add(this.rbprimaria);
-		this.add(this.rbsecundaria);
+		this.add(lbNivelEdu);
+		this.add(this.rbNinguno);
+		this.add(this.rbPreescolar);
+		this.add(this.rbPrepa);
+		this.add(this.rbPrimaria);
+		this.add(this.rbSecundaria);
 		
 	}
 }
