@@ -1,9 +1,6 @@
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-import java.awt.Graphics;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 
 public class VentanaISR extends JFrame{
 	
@@ -20,8 +17,8 @@ public class VentanaISR extends JFrame{
 		this.add(wpB,BorderLayout.SOUTH);
 		this.pack();
 		this.setVisible(true);
-				
 	}
+	
 	public static void main(String []args){
 		VentanaISR window = new VentanaISR();
 		
