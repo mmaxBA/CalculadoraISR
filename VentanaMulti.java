@@ -20,3 +20,4 @@ public class VentanaMulti extends JFrame{
 		VentanaMulti win3= new VentanaMulti();
 	}
 }
+
