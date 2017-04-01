@@ -91,6 +91,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 				this.visVentanaISR=false;
 				this.visVentanaMult=true;
 				this.ventanaISR.setVisible(visVentanaISR);
+				this.ventanaMulti.setVisible(visVentanaMult);
 			}
 		}
 		public boolean isVisibilidad() {
