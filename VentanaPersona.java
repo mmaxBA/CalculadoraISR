@@ -16,9 +16,9 @@ public class VentanaPersona extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		PanelPersona pd = new PanelPersona(this);
 		this.add(pd, BorderLayout.CENTER);
-		WastePanel wpA = new WastePanel(900,100);
+		WastePanel wpA = new WastePanel(900,50);
 		this.add(wpA,BorderLayout.NORTH);
-		WastePanel wpB = new WastePanel(900,150);
+		WastePanel wpB = new WastePanel(900,50);
 		this.add(wpB,BorderLayout.SOUTH);
 		this.pack();
 		this.setVisible(this.visVentanaPer);

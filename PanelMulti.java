@@ -87,6 +87,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 
 				Deducciones d=new Deducciones(a);
 				
+				d.
 			}
 			System.out.println(texto);
 			bf.close();
