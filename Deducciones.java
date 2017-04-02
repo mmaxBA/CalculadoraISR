@@ -15,7 +15,11 @@ public class Deducciones {
 				   LimInf,
 				   pagoExcedenteLimInf,
 				   totalAPagar;
-	Persona a=new Persona();
+	private Persona a;
+	
+	public Deducciones(Persona a){
+		this.a=a;
+	}
 	
 	public void ingresoAnual(){
 		this.ingresoAnual=this.a.getSueldoMensual()*12;

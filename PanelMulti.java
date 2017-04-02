@@ -56,22 +56,10 @@ public class PanelMulti extends JPanel implements ActionListener{
 		this.texto="";
 		this.ruta="";
 
-		this.deducir=new Deducciones();
+//		this.deducir=new Deducciones();
 	}
 
 	public String lector(String ruta){
-
-		this.setBackground(Color.blue);
-		
-		this.lbInstruc = new Label("Selecciona el archivo con la información",Label.CENTER);
-		this.setFont(new Font("Arial",Font.BOLD,20));
-		this.lbInstruc.setForeground(Color.WHITE);
-		this.lbInstruc.setBackground(Color.BLUE);
-		this.lbInstruc.setPreferredSize(new Dimension(800,200));
-		
-		this.add(this.lbInstruc);
-
-		
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(ruta));
 			while((linea=bf.readLine())!=null){
