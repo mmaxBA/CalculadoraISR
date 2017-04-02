@@ -26,7 +26,7 @@ public class Deducciones {
 		return  this.ingresoAnual;
 	}
 	public double aguinaldoExcento(){
-		this.aguinaldoExcento=this.a.getAguinaldo()/2;
+		this.aguinaldoExcento=this.a.getSueldoMensual()/2;
 		return this.aguinaldoExcento;
 	}
 	public double aguinaldoGravado(){

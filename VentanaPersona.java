@@ -9,7 +9,7 @@ public class VentanaPersona extends JFrame {
 	private boolean visVentanaPer;
 	
 	public VentanaPersona(){
-		super();
+		super("Calculo Individual");
 		this.visVentanaPer=false;
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

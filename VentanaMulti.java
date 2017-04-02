@@ -6,7 +6,7 @@ public class VentanaMulti extends JFrame{
 	private boolean visVentanaMult;
 	
 	public VentanaMulti(){
-		super();
+		super("Calculo Multiple");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		//frame= new VentanaISR();
