@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import jdk.nashorn.internal.ir.Labels;
+//import jdk.nashorn.internal.ir.Labels;
 
 public class PanelPersona extends JPanel implements ActionListener{
 	

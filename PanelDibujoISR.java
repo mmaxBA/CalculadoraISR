@@ -16,15 +16,28 @@ import javax.swing.SwingConstants;
 
 public class PanelDibujoISR extends JPanel implements ActionListener{
 	
-	//private String saludo=;
 	private JButton btIndividual,
 					btMultiples;
 	private Label saludo;
 	private Font txtBienvenida;
-	private Frame ventanaISR;
+	
+	private VentanaISR ventanaISR;
+	private VentanaPersona ventanaPer;
+	private VentanaMulti ventanaMulti;
+	
+	private boolean visVentanaISR,
+					visVentanaPer,
+					visVentanaMult;
+	
 		public PanelDibujoISR(VentanaISR frame){
 				super();
+				this.visVentanaISR=true;
+				this.visVentanaPer=false;
+				this.visVentanaMult=false;
+				
 				this.ventanaISR=frame;
+				this.ventanaPer= new VentanaPersona();
+								
 				this.setPreferredSize(new Dimension(1000,400));
 				this.setBackground(Color.BLUE);
 				//this.setLayout(null);
@@ -43,6 +56,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 				this.btIndividual.setPreferredSize(new Dimension(300, 150));
 				//this.btIndividual.setBounds(100,200,300,150);
 				this.btIndividual.setBackground(Color.WHITE);
+				this.btIndividual.setBorderPainted(false);
 				this.btIndividual.addActionListener(this);
 				this.add(btIndividual);
 				
@@ -52,6 +66,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 				this.btMultiples.setPreferredSize(new Dimension(300, 150));
 				//this.btMultiples.setBounds(600,200,300,150);
 				this.btMultiples.setBackground(Color.WHITE);
+				this.btMultiples.setBorderPainted(false);
 				this.btMultiples.addActionListener(this);
 				this.add(btMultiples);
 				
@@ -66,12 +81,36 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==this.btIndividual){
-				this.ventanaISR.setVisible(false);
+				this.visVentanaISR=false;
+				this.visVentanaPer=true;
+				this.ventanaISR.setVisible(visVentanaISR);
+				this.ventanaPer.setVisible(visVentanaPer);
 			}
 			
 			else if(e.getSource()==this.btMultiples){
-				this.ventanaISR.setVisible(false);
+				this.visVentanaISR=false;
+				this.visVentanaMult=true;
+				this.ventanaISR.setVisible(visVentanaISR);
 			}
-			
 		}
+		public boolean isVisibilidad() {
+			return visVentanaISR;
+		}
+		public void setVisibilidad(boolean visibilidad) {
+			this.visVentanaISR = visibilidad;
+		}
+		public boolean isVisVentanaPer() {
+			return visVentanaPer;
+		}
+		public void setVisVentanaPer(boolean visVentanaPer) {
+			this.visVentanaPer = visVentanaPer;
+		}
+		public boolean isVisVentanaMult() {
+			return visVentanaMult;
+		}
+		public void setVisVentanaMult(boolean visVentanaMult) {
+			this.visVentanaMult = visVentanaMult;
+		}
+		
+		
 }
