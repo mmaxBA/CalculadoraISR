@@ -17,12 +17,12 @@ public class PanelMulti extends JPanel{
 		super();
 		this.ventana=vm;
 		this.setPreferredSize(new Dimension(900,400));
-		this.setBackground(Color.GRAY);
+		this.setBackground(Color.blue);
 		
 		this.lbinstruc = new Label("Selecciona el archivo con la información",Label.CENTER);
 		this.setFont(new Font("Arial",Font.BOLD,20));
 		this.lbinstruc.setForeground(Color.WHITE);
-		this.lbinstruc.setBackground(Color.GRAY);
+		this.lbinstruc.setBackground(Color.BLUE);
 		this.lbinstruc.setPreferredSize(new Dimension(800,200));
 		
 		this.add(this.lbinstruc);
