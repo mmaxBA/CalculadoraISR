@@ -1,20 +1,20 @@
 
 public class Deducciones {
 	private double ingresoAnual,
-	aguinaldoExcento,
-	aguinaldoGravado,
-	primaVacacionalExcenta=15*80.4,
-	primaVacacionalGravada,
-	totalIngresosGravados,
-	maximoDeducirColegiatura,
-	totalDeduccionesSnR,
-	deduccionesPermitidas,
-	montoSobreElCualSeCalculaISR,
-	cuotaFija,
-	porcentExedenteLimInf,
-	LimInf,
-	pagoExcedenteLimInf,
-	totalAPagar;
+					aguinaldoExcento,
+					aguinaldoGravado,
+					primaVacacionalExcenta=15*80.4,
+					primaVacacionalGravada,
+					totalIngresosGravados,
+					maximoDeducirColegiatura,
+					totalDeduccionesSnR,
+					deduccionesPermitidas,
+					montoSobreElCualSeCalculaISR,
+					cuotaFija,
+					porcentExedenteLimInf,
+					LimInf,
+					pagoExcedenteLimInf,
+					totalAPagar;
 	private Persona a;
 
 	public Deducciones(Persona a){
@@ -62,7 +62,7 @@ public class Deducciones {
 		else if(this.a.getNivelEducativo().equals("Secundaria")){
 			this.maximoDeducirColegiatura=19900;
 		}
-		else if(this.a.getNivelEducativo().equals("Profesiona Tecnico")){
+		else if(this.a.getNivelEducativo().equals("Profesional Tecnico")){
 			this.maximoDeducirColegiatura=17100;
 		}
 		else if(this.a.getNivelEducativo().equals("Bachillerato")){

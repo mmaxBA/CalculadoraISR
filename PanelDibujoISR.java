@@ -1,25 +1,18 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Frame;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 
 public class PanelDibujoISR extends JPanel implements ActionListener{
 
 	private JButton btIndividual,
 					btMultiples;
 	private Label saludo;
-	private Font txtBienvenida;
 
 	private VentanaISR ventanaISR;
 	private VentanaPersona ventanaPer;
@@ -37,6 +30,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 
 		this.ventanaISR=frame;
 		this.ventanaPer= new VentanaPersona();
+		this.ventanaMulti = new VentanaMulti();
 
 		this.setPreferredSize(new Dimension(1000,400));
 		this.setBackground(Color.WHITE);

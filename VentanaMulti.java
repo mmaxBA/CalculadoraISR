@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 public class VentanaMulti extends JFrame{
 	private boolean visVentanaMult;
 	
-	public VentanaMulti(VentanaISR frame){
+	public VentanaMulti(){
 		super();
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -37,7 +37,7 @@ public class VentanaMulti extends JFrame{
 	
 	public static void main(String[] args){
 		VentanaISR isr=new VentanaISR();
-		VentanaMulti win3= new VentanaMulti(isr);
+		VentanaMulti win3= new VentanaMulti();
 	}
 	
 }

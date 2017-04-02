@@ -10,7 +10,6 @@ public class VentanaPersona extends JFrame {
 	
 	public VentanaPersona(){
 		super();
-		
 		this.visVentanaPer=false;
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);

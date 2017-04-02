@@ -1,16 +1,13 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -19,47 +16,50 @@ import javax.swing.JTextField;
 
 public class PanelPersona extends JPanel implements ActionListener {
 
-	private JButton btCalcular;
+	private JButton btCalcular,
+					btRegresar;
 	private JTextField  tfNombre,
-	tfRfc,
-	tfMensual,
-	tfAguinaldo,
-	tfPrimaVac,
-	tfMedico,
-	tfFunerarios,
-	tfSeguro,
-	tfHipoteca,
-	tfDonativos,
-	tfSubCuenta,
-	tfTranspEsc,
-	tfNivelEdu,
-	tfColegiatura;
+						tfRfc,
+						tfMensual,
+						tfAguinaldo,
+						tfPrimaVac,
+						tfMedico,
+						tfFunerarios,
+						tfSeguro,
+						tfHipoteca,
+						tfDonativos,
+						tfSubCuenta,
+						tfTranspEsc,
+						tfColegiatura;
 	private Label lbNombre,
-	lbRfc,
-	lbInstruc,
-	lbMensual,
-	lbAguinaldo,
-	lbPrimaVac,
-	lbMedico,
-	lbFunerarios,
-	lbSeguro,
-	lbHipoteca,
-	lbDonativos,
-	lbSubCuenta,
-	lbTranspEsc,
-	lbNivelEdu,
-	lbColegiatura;
+					lbRfc,
+					lbInstruc,
+					lbMensual,
+					lbAguinaldo,
+					lbPrimaVac,
+					lbMedico,
+					lbFunerarios,
+					lbSeguro,
+					lbHipoteca,
+					lbDonativos,
+					lbSubCuenta,
+					lbTranspEsc,
+					lbNivelEdu,
+					lbColegiatura;
 	private VentanaPersona venPersona;
+	//private VentanaISR venISR;
 	private JRadioButton rbSecundaria,
-	rbPrepa,
-	rbPrimaria,
-	rbPreescolar,
-	rbNinguno;
+							rbPrepa,
+							rbPrimaria,
+							rbPreescolar,
+							rbNinguno;
 	private Persona per;
+	private Deducciones dedus;
 
 
 	public PanelPersona(VentanaPersona vp){
 		super();
+		//this.venISR= new VentanaISR();
 		this.venPersona= vp;
 		this.setPreferredSize(new Dimension(900,600));
 		this.setBackground(Color.WHITE);
@@ -195,13 +195,18 @@ public class PanelPersona extends JPanel implements ActionListener {
 
 		this.rbNinguno = new JRadioButton("Ninguno",true);
 		this.rbNinguno.setBackground(Color.WHITE);
+		this.rbNinguno.setPreferredSize(new Dimension(150,20));
 		this.rbPreescolar = new JRadioButton("Preescolar");
+		this.rbPreescolar.setPreferredSize(new Dimension(150,20));
 		this.rbPreescolar.setBackground(Color.WHITE);
 		this.rbPrimaria = new JRadioButton("Primaria");
+		this.rbPrimaria.setPreferredSize(new Dimension(150,20));
 		this.rbPrimaria.setBackground(Color.WHITE);
 		this.rbSecundaria = new JRadioButton("Secundaria");
+		this.rbSecundaria.setPreferredSize(new Dimension(150,20));
 		this.rbSecundaria.setBackground(Color.WHITE);
 		this.rbPrepa = new JRadioButton("Bachillerato");
+		this.rbPrepa.setPreferredSize(new Dimension(150,20));
 		this.rbPrepa.setBackground(Color.WHITE);
 
 
@@ -220,11 +225,19 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.add(this.rbSecundaria);
 
 		this.btCalcular = new JButton("Calcular");
-		this.btCalcular.setPreferredSize(new Dimension(550,40));
+		this.btCalcular.setPreferredSize(new Dimension(225,40));
 		this.btCalcular.setBackground(Color.CYAN);
 		this.btCalcular.setBorderPainted(false);
 		this.btCalcular.addActionListener(this);
 		this.add(this.btCalcular);
+		
+		this.btRegresar = new JButton("Regresar");
+		this.btRegresar.setPreferredSize(new Dimension(225,40));
+		this.btRegresar.setBackground(Color.CYAN);
+		this.btRegresar.setBorderPainted(false);
+		this.btRegresar.addActionListener(this);
+		this.add(this.btRegresar);
+		
 
 	}
 
@@ -249,7 +262,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 			}
 			else if(this.rbPreescolar.isSelected()){
 				this.per.setNivelEducativo("Preescolar");
-			}
+			} 
 			else if(this.rbPrepa.isSelected()){
 				this.per.setNivelEducativo("Bachilerato");
 			}
@@ -259,11 +272,27 @@ public class PanelPersona extends JPanel implements ActionListener {
 			else{
 				this.per.setNivelEducativo("Secundaria");
 			}
+			this.dedus = new Deducciones(this.per);
+			JOptionPane.showMessageDialog(null, "El ingreso anual es de "+ String.valueOf(this.dedus.ingresoAnual())+ 
+												"\nEl aguinaldo excento es de: " + String.valueOf(this.dedus.aguinaldoExcento())+
+												"\nEl agunaldo gravado es de: " + String.valueOf(this.dedus.aguinaldoGravado())+ 
+												"\nLa prima vacacional excenta es de: "+ String.valueOf(this.dedus.primaVacacionalGravada())+
+												"\nEl total de ingresos gravados es de: "+ String.valueOf(this.dedus.totalIngresosGravados())+
+							"\nEl maximo a deducir de "+ per.getNivelEducativo()+" es de:" + String.valueOf(this.dedus.maximoDeducirColegiatura())+
+							"\nEl total de deducciones sin ISR es de: "+ String.valueOf(this.dedus.totalDeduccionesSnR())+
+							"\nEl total de deducciones permitidas es de: "+ String.valueOf(this.dedus.deduccionesPermitidas())+
+							"\nEl monto sobre el cuál se calcula el ISR es de: "+ String.valueOf(this.dedus.montoSobreElCualSeCalculaISR())+
+							"\nLa cuota fija a pagar es de: "+ String.valueOf(this.dedus.cuotaFija())+
+							"\nEl porcentaje de ISR es de: "+ String.valueOf(this.dedus.porcentExedenteLimInf())+
+							"\nEl limite inferior es de: "+String.valueOf(this.dedus.LimInf())+
+							"\nEl pago excedente del limite inferior es de: "+ String.valueOf(this.dedus.pagoExcedenteLimInf())+
+							"\nEl total que debe pagar "+per.getNombre()+" es de: "+ String.valueOf(this.dedus.totalPagar()), "Resultados", 3);
 		}
-		//else if(e.getSource() == this.btregresar){
+		//else if(e.getSource() == this.btRegresar){
+			//this.venISR.setVisible(true);
+			//this.venPersona.setVisible(false);
 
-
-
+		//}
 	}
 
 }
