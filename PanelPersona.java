@@ -19,7 +19,8 @@ import javax.swing.JTextField;
 
 public class PanelPersona extends JPanel implements ActionListener{
 	
-	private JButton btcalcular;
+	private JButton btcalcular,
+					btregresar;
 	private JTextField  tfnombre,
 						tfrfc,
 						tfmensual,
@@ -48,7 +49,6 @@ public class PanelPersona extends JPanel implements ActionListener{
 					lbtranspesc,
 					lbniveledu,
 					lbcolegiatura;
-	private JFrame ventana;
 	private JRadioButton rbsecundaria,
 						rbprepa,
 						rbprimaria,
@@ -58,7 +58,9 @@ public class PanelPersona extends JPanel implements ActionListener{
 	
 	public PanelPersona(VentanaPersona vp){
 		super();
-		this.ventana=vp;
+		this.ventanaPer= vp;
+		this.visVentanaPer = true;
+		this.visVentanaISR = false;
 		this.setPreferredSize(new Dimension(900,500));
 		this.setBackground(Color.BLUE);
 		
@@ -216,39 +218,47 @@ public class PanelPersona extends JPanel implements ActionListener{
 		this.btcalcular.setPreferredSize(new Dimension(200,20));
 		this.add(this.btcalcular);
 		
+		this.btregresar = new JButton("Regresar");
+		this.btregresar.setPreferredSize(new Dimension(200,20));
+		this.add(this.btregresar);
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		this.per = new Persona();
-		this.per.setNombre(this.tfnombre.getText());
-		this.per.setRfc(this.tfrfc.getText());
-		this.per.setSueldoMensual(Double.parseDouble(this.tfmensual.getText()));
-		this.per.setAguinaldo(Double.parseDouble(this.tfaguinaldo.getText()));
-		this.per.setAportacionRetiro(Double.parseDouble(this.tfsubcuenta.getText()));
-		this.per.setColegiatura(Double.parseDouble(this.tfcolegiatura.getText()));
-		this.per.setDonativos(Double.parseDouble(this.tfdonativos.getText()));
-		this.per.setFunerarios(Double.parseDouble(this.tffunerarios.getText()));
-		this.per.setHipotecarios(Double.parseDouble(this.tfhipoteca.getText()));
-		this.per.setMedicos(Double.parseDouble(this.tfmedico.getText()));
-		this.per.setPrimaVacacional(Double.parseDouble(this.tfprimavac.getText()));
-		this.per.setSggm(Double.parseDouble(this.tfseguro.getText()));
-		this.per.setTransporte(Double.parseDouble(this.tftranspesc.getText()));
-		if(this.rbninguno.isSelected()){
-			this.per.setNivelEducativo("Ninguno");
-		}
-		else if(this.rbpreescolar.isSelected()){
-			this.per.setNivelEducativo("Preescolar");
-		}
-		else if(this.rbprepa.isSelected()){
-			this.per.setNivelEducativo("Bachilerato");
-		}
-		else if(this.rbprimaria.isSelected()){
-			this.per.setNivelEducativo("Primaria");
-		}
-		else{
-			this.per.setNivelEducativo("Secundaria");
+			if(e.getSource() == this.btcalcular){
+				this.per = new Persona();
+				this.per.setNombre(this.tfnombre.getText());
+				this.per.setRfc(this.tfrfc.getText());
+				this.per.setSueldoMensual(Double.parseDouble(this.tfmensual.getText()));
+				this.per.setAguinaldo(Double.parseDouble(this.tfaguinaldo.getText()));
+				this.per.setAportacionRetiro(Double.parseDouble(this.tfsubcuenta.getText()));
+				this.per.setColegiatura(Double.parseDouble(this.tfcolegiatura.getText()));
+				this.per.setDonativos(Double.parseDouble(this.tfdonativos.getText()));
+				this.per.setFunerarios(Double.parseDouble(this.tffunerarios.getText()));
+				this.per.setHipotecarios(Double.parseDouble(this.tfhipoteca.getText()));
+				this.per.setMedicos(Double.parseDouble(this.tfmedico.getText()));
+				this.per.setPrimaVacacional(Double.parseDouble(this.tfprimavac.getText()));
+				this.per.setSggm(Double.parseDouble(this.tfseguro.getText()));
+				this.per.setTransporte(Double.parseDouble(this.tftranspesc.getText()));
+				if(this.rbninguno.isSelected()){
+					this.per.setNivelEducativo("Ninguno");
+				}
+				else if(this.rbpreescolar.isSelected()){
+					this.per.setNivelEducativo("Preescolar");
+				}
+				else if(this.rbprepa.isSelected()){
+					this.per.setNivelEducativo("Bachilerato");
+				}
+				else if(this.rbprimaria.isSelected()){
+					this.per.setNivelEducativo("Primaria");
+				}
+				else{
+					this.per.setNivelEducativo("Secundaria");
+				}
+			}
+			else if(e.getSource() == this.btregresar){
+				
 		}
 	}
 }
