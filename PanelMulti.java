@@ -84,8 +84,9 @@ public class PanelMulti extends JPanel implements ActionListener{
 				a.setAportacionRetiro(Double.parseDouble(linea[10]));
 				a.setTransporte(Double.parseDouble(linea[11]));
 				a.setColegiatura(Double.parseDouble(linea[13]));
+
+				Deducciones d=new Deducciones(a);
 				
-					   
 			}
 			System.out.println(texto);
 			bf.close();

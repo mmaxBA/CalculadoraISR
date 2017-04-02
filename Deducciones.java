@@ -1,52 +1,58 @@
 
 public class Deducciones {
 	private double ingresoAnual,
-				   aguinaldoExcento,
-				   aguinaldoGravado,
-				   primaVacacionalExcenta=15*80.4,
-				   primaVacacionalGravada,
-				   totalIngresosGravados,
-				   maximoDeducirColegiatura,
-				   totalDeduccionesSnR,
-				   deduccionesPermitidas,
-				   montoSobreElCualSeCalculaISR,
-				   cuotaFija,
-				   porcentExedenteLimInf,
-				   LimInf,
-				   pagoExcedenteLimInf,
-				   totalAPagar;
+	aguinaldoExcento,
+	aguinaldoGravado,
+	primaVacacionalExcenta=15*80.4,
+	primaVacacionalGravada,
+	totalIngresosGravados,
+	maximoDeducirColegiatura,
+	totalDeduccionesSnR,
+	deduccionesPermitidas,
+	montoSobreElCualSeCalculaISR,
+	cuotaFija,
+	porcentExedenteLimInf,
+	LimInf,
+	pagoExcedenteLimInf,
+	totalAPagar;
 	private Persona a;
-	
+
 	public Deducciones(Persona a){
 		this.a=a;
 	}
-	
-	public void ingresoAnual(){
+
+	public double ingresoAnual(){
 		this.ingresoAnual=this.a.getSueldoMensual()*12;
+		return  this.ingresoAnual;
 	}
-	public void aguinaldoExcento(){
+	public double aguinaldoExcento(){
 		this.aguinaldoExcento=this.a.getAguinaldo()/2;
+		return this.aguinaldoExcento;
 	}
-	public void aguinaldoGravado(){
+	public double aguinaldoGravado(){
 		if((this.a.getAguinaldo()-this.aguinaldoExcento)<0){
 			this.aguinaldoGravado=0;
 		}
 		else{
 			this.aguinaldoGravado=this.a.getAguinaldo()-this.aguinaldoExcento;
 		}
+
+		return this.aguinaldoGravado;
 	}
-	public void primaVacacionalGravada(){
+	public double primaVacacionalGravada(){
 		if((this.a.getPrimaVacacional()-this.primaVacacionalExcenta)<0){
-			this.aguinaldoGravado=0;
+			this.primaVacacionalExcenta=0;
 		}
 		else{
 			this.primaVacacionalExcenta=this.a.getPrimaVacacional()-this.primaVacacionalExcenta;
 		}
+		return this.primaVacacionalExcenta;
 	}
-	public void totalIngresosGravados(){
+	public double totalIngresosGravados(){
 		this.totalIngresosGravados=this.ingresoAnual+this.aguinaldoGravado+this.primaVacacionalGravada;
+		return this.totalIngresosGravados;
 	}
-	public void maximoDeducirColegiatura(){
+	public double maximoDeducirColegiatura(){
 		if(this.a.getNivelEducativo().equals("Preescolar")){
 			this.maximoDeducirColegiatura=14200;
 		}
@@ -65,23 +71,28 @@ public class Deducciones {
 		else{
 			this.maximoDeducirColegiatura=0;
 		}
+
+		return this.maximoDeducirColegiatura;
 	}
-	public void totalDeduccionesSnR(){
+	public double totalDeduccionesSnR(){
 		if (a.getColegiatura()<this.maximoDeducirColegiatura){
-		this.totalDeduccionesSnR=a.getMedicos()+a.getFunerarios()+a.getSggm()+a.getHipotecarios()+a.getDonativos()+a.getTransporte()+a.getColegiatura();
+			this.totalDeduccionesSnR=a.getMedicos()+a.getFunerarios()+a.getSggm()+a.getHipotecarios()+a.getDonativos()+a.getTransporte()+a.getColegiatura();
 		}
 		else {
 			this.totalDeduccionesSnR=a.getMedicos()+a.getFunerarios()+a.getSggm()+a.getHipotecarios()+a.getDonativos()+a.getTransporte()+this.maximoDeducirColegiatura;
 		}
+		return this.totalDeduccionesSnR;
 	}
-	public void deduccionesPermitidas(){
+	public double deduccionesPermitidas(){
 		this.deduccionesPermitidas=(this.ingresoAnual+this.totalDeduccionesSnR)*0.1;
+		return this.deduccionesPermitidas;
 	}
-	public void montoSobreElCualSeCalculaISR(){
+	public double montoSobreElCualSeCalculaISR(){
 		this.montoSobreElCualSeCalculaISR=this.totalIngresosGravados-this.deduccionesPermitidas;
+		return this.montoSobreElCualSeCalculaISR;
 	}
-	
-	public void cuotaFija(){
+
+	public double cuotaFija(){
 		if(this.montoSobreElCualSeCalculaISR< 5952.84){
 			this.cuotaFija = 0;
 		}
@@ -115,8 +126,9 @@ public class Deducciones {
 		else if ( this.montoSobreElCualSeCalculaISR>3000000.01){
 			this.cuotaFija = 940850.81;
 		}
+		return this.cuotaFija;
 	}
-	public void porcentExedenteLimInf(){
+	public double porcentExedenteLimInf(){
 		if(this.montoSobreElCualSeCalculaISR< 5952.84){
 			this.porcentExedenteLimInf = 1.92;
 		}
@@ -150,8 +162,10 @@ public class Deducciones {
 		else if ( this.montoSobreElCualSeCalculaISR>3000000.01){
 			this.porcentExedenteLimInf = 35;
 		}
+		
+		return this.porcentExedenteLimInf;
 	}
-	public void LimInf(){
+	public double LimInf(){
 		if ( this.porcentExedenteLimInf == 1.92){
 			this.LimInf = 0.01;
 		}
@@ -185,11 +199,14 @@ public class Deducciones {
 		else if(this.porcentExedenteLimInf == 35){
 			this.LimInf = 3000000.01;
 		}
+		return this.LimInf;
 	}
-	public void pagoExcedenteLimInf(){
+	public double pagoExcedenteLimInf(){
 		this.pagoExcedenteLimInf = (this.porcentExedenteLimInf/100)*(this.montoSobreElCualSeCalculaISR-this.LimInf);
+		return this.pagoExcedenteLimInf;
 	}
-	public void totalPagar(){
+	public double totalPagar(){
 		this.totalAPagar = this.cuotaFija + this.pagoExcedenteLimInf;
+		return this.totalAPagar;
 	}
 }
