@@ -8,7 +8,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -21,7 +23,8 @@ public class PanelMulti extends JPanel implements ActionListener{
 	private JFileChooser fc;
 	private String linea,
 				   texto,
-				   ruta;
+				   ruta,
+				   destino;
 	//private Persona[] personas;
 	
 	private Frame ventanaMulti;
@@ -62,8 +65,8 @@ public class PanelMulti extends JPanel implements ActionListener{
 	public String lector(String ruta){
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(ruta));
+			PrintWriter pw=new PrintWriter(new FileWriter(destino));
 			while((linea=bf.readLine())!=null){
-				//texto += linea+"\n";
 				
 				Persona a = new Persona();
 				
@@ -87,9 +90,9 @@ public class PanelMulti extends JPanel implements ActionListener{
 
 				Deducciones d=new Deducciones(a);
 				
-				d.
+				
+				d.ingresoAnual();
 			}
-			System.out.println(texto);
 			bf.close();
 		} 
 		catch (FileNotFoundException e) {
@@ -109,7 +112,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 			if(resp==JFileChooser.APPROVE_OPTION){
 				String archivoSel =this.fc.getSelectedFile().toString();
 				System.out.println(archivoSel);
-				System.out.println(lector(archivoSel));
+				System.out.println(lector(archivoSel));  
 			}
 		}
 
