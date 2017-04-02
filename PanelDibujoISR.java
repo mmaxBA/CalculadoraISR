@@ -39,14 +39,14 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 				this.ventanaPer= new VentanaPersona();
 								
 				this.setPreferredSize(new Dimension(1000,400));
-				this.setBackground(Color.WHITE);
+				this.setBackground(Color.BLUE);
 				//this.setLayout(null);
 			
 				
 				this.saludo= new Label("¡Bienvenido a la calculadora de ISR!",Label.CENTER);
 				this.setFont(new Font("Arial",Font.BOLD,36));
-				this.saludo.setForeground(Color.BLACK);
-				this.saludo.setBackground(Color.WHITE);
+				this.saludo.setForeground(Color.WHITE);
+				this.saludo.setBackground(Color.BLUE);
 				this.saludo.setPreferredSize(new Dimension(800, 200));
 				this.add(saludo);
 				

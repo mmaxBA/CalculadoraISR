@@ -31,6 +31,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 		super();
 		this.ventanaMulti=vm;
 		this.setPreferredSize(new Dimension(900,400));
+<<<<<<< HEAD
 		this.setBackground(Color.WHITE);
 
 		this.lbInstruc = new Label("Selecciona el archivo con la información",Label.CENTER);
@@ -59,6 +60,17 @@ public class PanelMulti extends JPanel implements ActionListener{
 	}
 
 	public String lector(String ruta){
+=======
+		this.setBackground(Color.blue);
+		
+		this.lbinstruc = new Label("Selecciona el archivo con la información",Label.CENTER);
+		this.setFont(new Font("Arial",Font.BOLD,20));
+		this.lbinstruc.setForeground(Color.WHITE);
+		this.lbinstruc.setBackground(Color.BLUE);
+		this.lbinstruc.setPreferredSize(new Dimension(800,200));
+		
+		this.add(this.lbinstruc);
+>>>>>>> origin/master
 		
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(ruta));
