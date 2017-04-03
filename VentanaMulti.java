@@ -14,9 +14,9 @@ public class VentanaMulti extends JFrame{
 				
 		PanelMulti pm = new PanelMulti(this);
 		this.add(pm, BorderLayout.CENTER);
-		WastePanel wpA = new WastePanel(900,100);
+		WastePanel wpA = new WastePanel(900,250);
 		this.add(wpA,BorderLayout.NORTH);
-		WastePanel wpB = new WastePanel(900,100);
+		WastePanel wpB = new WastePanel(900,250);
 		this.add(wpB,BorderLayout.SOUTH);
 		
 		this.pack();

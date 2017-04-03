@@ -65,7 +65,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 	public String lector(String ruta){
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(ruta));
-			PrintWriter pw=new PrintWriter(new FileWriter(destino));
+			//PrintWriter pw=new PrintWriter(new FileWriter(destino));
 			while((linea=bf.readLine())!=null){
 				
 				Persona a = new Persona();
@@ -73,6 +73,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 				String[] linea=this.linea.split(",");
 						
 				a.setNombre(linea[0]);
+				System.out.println(a.getNombre());
 				a.setRfc(linea[1]);
 				a.setNivelEducativo(linea[12]);
 				
@@ -91,7 +92,23 @@ public class PanelMulti extends JPanel implements ActionListener{
 				Deducciones d=new Deducciones(a);
 				
 				
-				d.ingresoAnual();
+				System.out.println(d.ingresoAnual());
+				System.out.println(d.aguinaldoExcento());
+				System.out.println(d.aguinaldoGravado());
+				System.out.println(d.primaVacacionalExcenta());
+				System.out.println(d.primaVacacionalGravada());
+				System.out.println(d.totalIngresosGravados());
+				System.out.println(d.maximoDeducirColegiatura());
+				System.out.println(d.totalDeduccionesSnR());
+				System.out.println(d.deduccionesPermitidas());
+				System.out.println(d.montoSobreElCualSeCalculaISR());
+				System.out.println(d.cuotaFija());
+				System.out.println(d.porcentExedenteLimInf());
+				System.out.println(d.pagoExcedenteLimInf());
+				System.out.println(d.totalPagar());
+				
+				System.out.println("");
+				
 			}
 			bf.close();
 		} 

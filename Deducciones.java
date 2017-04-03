@@ -3,7 +3,7 @@ public class Deducciones {
 	private double ingresoAnual,
 					aguinaldoExcento,
 					aguinaldoGravado,
-					primaVacacionalExcenta=15*80.4,
+					primaVacacionalExcenta,
 					primaVacacionalGravada,
 					totalIngresosGravados,
 					maximoDeducirColegiatura,
@@ -38,6 +38,10 @@ public class Deducciones {
 		}
 
 		return this.aguinaldoGravado;
+	}
+	public double primaVacacionalExcenta(){
+		this.primaVacacionalExcenta=15*80.4;
+		return this.primaVacacionalExcenta;
 	}
 	public double primaVacacionalGravada(){
 		if((this.a.getPrimaVacacional()-this.primaVacacionalExcenta)<0){

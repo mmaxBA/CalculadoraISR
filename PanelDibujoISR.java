@@ -47,9 +47,9 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 
 		this.btIndividual=new JButton("Individual");
 		this.btIndividual.setFont(new Font("Calibri",Font.BOLD,26));
-		this.btIndividual.setPreferredSize(new Dimension(300, 150));
+		this.btIndividual.setPreferredSize(new Dimension(300, 60));
 		//this.btIndividual.setBounds(100,200,300,150);
-		this.btIndividual.setBackground(Color.WHITE);
+		this.btIndividual.setBackground(new Color(0,204,255));
 		this.btIndividual.setBorderPainted(false);
 		this.btIndividual.addActionListener(this);
 		this.add(btIndividual);
@@ -57,9 +57,9 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 
 		this.btMultiples=new JButton("Multiples");
 		this.btMultiples.setFont(new Font("Calibri",Font.BOLD,26));
-		this.btMultiples.setPreferredSize(new Dimension(300, 150));
+		this.btMultiples.setPreferredSize(new Dimension(300, 60));
 		//this.btMultiples.setBounds(600,200,300,150);
-		this.btMultiples.setBackground(Color.WHITE);
+		this.btMultiples.setBackground(new Color(0,204,255));
 		this.btMultiples.setBorderPainted(false);
 		this.btMultiples.addActionListener(this);
 		this.add(btMultiples);

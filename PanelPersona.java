@@ -226,14 +226,14 @@ public class PanelPersona extends JPanel implements ActionListener {
 
 		this.btCalcular = new JButton("Calcular");
 		this.btCalcular.setPreferredSize(new Dimension(225,40));
-		this.btCalcular.setBackground(Color.CYAN);
+		this.btCalcular.setBackground(new Color(0,204,255));
 		this.btCalcular.setBorderPainted(false);
 		this.btCalcular.addActionListener(this);
 		this.add(this.btCalcular);
 		
 		this.btRegresar = new JButton("Regresar");
 		this.btRegresar.setPreferredSize(new Dimension(225,40));
-		this.btRegresar.setBackground(Color.CYAN);
+		this.btRegresar.setBackground(new Color(0,204,255));
 		this.btRegresar.setBorderPainted(false);
 		this.btRegresar.addActionListener(this);
 		this.add(this.btRegresar);
