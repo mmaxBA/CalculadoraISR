@@ -25,7 +25,6 @@ public class PanelMulti extends JPanel implements ActionListener{
 				   texto,
 				   ruta,
 				   destino;
-	//private Persona[] personas;
 	
 	private Frame ventanaMulti;
 	private Deducciones deducir;
@@ -59,7 +58,6 @@ public class PanelMulti extends JPanel implements ActionListener{
 		this.texto="";
 		this.ruta="";
 
-//		this.deducir=new Deducciones();
 	}
 
 	public String lector(String ruta){
