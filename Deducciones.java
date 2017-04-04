@@ -47,11 +47,12 @@ public class Deducciones {
 	public double primaVacacionalGravada(){
 		if((this.a.getPrimaVacacional()-this.primaVacacionalExcenta)<0){
 			this.primaVacacionalExcenta=0;
+			this.primaVacacionalGravada = a.getPrimaVacacional();
 		}
 		else{
-			this.primaVacacionalExcenta=this.a.getPrimaVacacional()-this.primaVacacionalExcenta;
+			this.primaVacacionalGravada=this.a.getPrimaVacacional()-this.primaVacacionalExcenta;
 		}
-		return this.primaVacacionalExcenta;
+		return this.primaVacacionalGravada;
 	}
 	public double totalIngresosGravados(){
 		this.totalIngresosGravados=this.ingresoAnual+this.aguinaldoGravado+this.primaVacacionalGravada;

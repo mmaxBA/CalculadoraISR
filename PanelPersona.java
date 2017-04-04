@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -55,7 +56,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 							rbNinguno;
 	private Persona per;
 	private Deducciones dedus;
-
+	DecimalFormat df;
 
 	public PanelPersona(VentanaPersona vp){
 		super();
@@ -230,15 +231,15 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.btCalcular.setBorderPainted(false);
 		this.btCalcular.addActionListener(this);
 		this.add(this.btCalcular);
-		
+		/*
 		this.btRegresar = new JButton("Regresar");
 		this.btRegresar.setPreferredSize(new Dimension(225,40));
 		this.btRegresar.setBackground(new Color(0,204,255));
 		this.btRegresar.setBorderPainted(false);
 		this.btRegresar.addActionListener(this);
 		this.add(this.btRegresar);
-		
-
+		*/
+		this.df = new DecimalFormat("#.00");
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -246,17 +247,17 @@ public class PanelPersona extends JPanel implements ActionListener {
 			this.per = new Persona();
 			this.per.setNombre(this.tfNombre.getText());
 			this.per.setRfc(this.tfRfc.getText());
-			this.per.setSueldoMensual(Double.parseDouble(this.tfMensual.getText()));
-			this.per.setAguinaldo(Double.parseDouble(this.tfAguinaldo.getText()));
-			this.per.setAportacionRetiro(Double.parseDouble(this.tfSubCuenta.getText()));
-			this.per.setColegiatura(Double.parseDouble(this.tfColegiatura.getText()));
-			this.per.setDonativos(Double.parseDouble(this.tfDonativos.getText()));
-			this.per.setFunerarios(Double.parseDouble(this.tfFunerarios.getText()));
-			this.per.setHipotecarios(Double.parseDouble(this.tfHipoteca.getText()));
-			this.per.setMedicos(Double.parseDouble(this.tfMedico.getText()));
-			this.per.setPrimaVacacional(Double.parseDouble(this.tfPrimaVac.getText()));
-			this.per.setSggm(Double.parseDouble(this.tfSeguro.getText()));
-			this.per.setTransporte(Double.parseDouble(this.tfTranspEsc.getText()));
+			this.per.setSueldoMensual(Double.parseDouble(df.format(Double.parseDouble(this.tfMensual.getText()))));
+			this.per.setAguinaldo(Double.parseDouble(df.format(Double.parseDouble(this.tfAguinaldo.getText()))));
+			this.per.setAportacionRetiro(Double.parseDouble(df.format(Double.parseDouble(this.tfSubCuenta.getText()))));
+			this.per.setColegiatura(Double.parseDouble(df.format(Double.parseDouble(this.tfColegiatura.getText()))));
+			this.per.setDonativos(Double.parseDouble(df.format(Double.parseDouble(this.tfDonativos.getText()))));
+			this.per.setFunerarios(Double.parseDouble(df.format(Double.parseDouble(this.tfFunerarios.getText()))));
+			this.per.setHipotecarios(Double.parseDouble(df.format(Double.parseDouble(this.tfHipoteca.getText()))));
+			this.per.setMedicos(Double.parseDouble(df.format(Double.parseDouble(this.tfMedico.getText()))));
+			this.per.setPrimaVacacional(Double.parseDouble(df.format(Double.parseDouble(this.tfPrimaVac.getText()))));
+			this.per.setSggm(Double.parseDouble(df.format(Double.parseDouble(this.tfSeguro.getText()))));
+			this.per.setTransporte(Double.parseDouble(df.format(Double.parseDouble(this.tfTranspEsc.getText()))));
 			if(this.rbNinguno.isSelected()){
 				this.per.setNivelEducativo("Ninguno");
 			}
@@ -273,23 +274,23 @@ public class PanelPersona extends JPanel implements ActionListener {
 				this.per.setNivelEducativo("Secundaria");
 			}
 			this.dedus = new Deducciones(this.per);
-			JOptionPane.showMessageDialog(null, "El ingreso anual es de "+ String.valueOf(this.dedus.ingresoAnual())+ 
-												"\nEl aguinaldo excento es de: " + String.valueOf(this.dedus.aguinaldoExcento())+
-												"\nEl agunaldo gravado es de: " + String.valueOf(this.dedus.aguinaldoGravado())+ 
-												"\nLa prima vacacional excenta es de: "+ String.valueOf(this.dedus.primaVacacionalGravada())+
-												"\nEl total de ingresos gravados es de: "+ String.valueOf(this.dedus.totalIngresosGravados())+
-							"\nEl maximo a deducir de "+ per.getNivelEducativo()+" es de:" + String.valueOf(this.dedus.maximoDeducirColegiatura())+
-							"\nEl total de deducciones sin ISR es de: "+ String.valueOf(this.dedus.totalDeduccionesSnR())+
-							"\nEl total de deducciones permitidas es de: "+ String.valueOf(this.dedus.deduccionesPermitidas())+
-							"\nEl monto sobre el cuál se calcula el ISR es de: "+ String.valueOf(this.dedus.montoSobreElCualSeCalculaISR())+
-							"\nLa cuota fija a pagar es de: "+ String.valueOf(this.dedus.cuotaFija())+
-							"\nEl porcentaje de ISR es de: "+ String.valueOf(this.dedus.porcentExedenteLimInf())+
-							"\nEl limite inferior es de: "+String.valueOf(this.dedus.LimInf())+
-							"\nEl pago excedente del limite inferior es de: "+ String.valueOf(this.dedus.pagoExcedenteLimInf())+
-							"\nEl total que debe pagar "+per.getNombre()+" es de: "+ String.valueOf(this.dedus.totalPagar()), "Resultados", 3);
+			JOptionPane.showMessageDialog(null, "El ingreso anual es de "+ String.valueOf(Double.parseDouble(df.format(this.dedus.ingresoAnual())))+ 
+												"\nEl aguinaldo excento es de: " + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoExcento())))+
+												"\nEl aguinaldo gravado es de: " + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoGravado())))+ 
+												"\nLa prima vacacional excenta es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.primaVacacionalGravada())))+
+												"\nEl total de ingresos gravados es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalIngresosGravados())))+
+							"\nEl maximo a deducir de "+ per.getNivelEducativo()+" es de:" + String.valueOf(Double.parseDouble(df.format(this.dedus.maximoDeducirColegiatura())))+
+							"\nEl total de deducciones sin ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalDeduccionesSnR())))+
+							"\nEl total de deducciones permitidas es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.deduccionesPermitidas())))+
+							"\nEl monto sobre el cuál se calcula el ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.montoSobreElCualSeCalculaISR())))+
+							"\nLa cuota fija a pagar es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.cuotaFija())))+
+							"\nEl porcentaje de ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.porcentExedenteLimInf())))+
+							"\nEl limite inferior es de: "+String.valueOf(Double.parseDouble(df.format(this.dedus.LimInf())))+
+							"\nEl pago excedente del limite inferior es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.pagoExcedenteLimInf())))+
+							"\nEl total que debe pagar "+per.getNombre()+" es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalPagar()))), "Resultados", 3);
 		}
-		
-		/*else if(e.getSource()==this.btRegresar){
+		/*
+		else if(e.getSource()==this.btRegresar){
 			this.ventanaISR.setVisibilidad(true);
 			this.venPersona.setVisible(false);
 		}
