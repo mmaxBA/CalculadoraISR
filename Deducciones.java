@@ -19,6 +19,7 @@ public class Deducciones {
 
 	public Deducciones(Persona a){
 		this.a=a;
+		
 	}
 
 	public double ingresoAnual(){
@@ -40,7 +41,7 @@ public class Deducciones {
 		return this.aguinaldoGravado;
 	}
 	public double primaVacacionalExcenta(){
-		this.primaVacacionalExcenta=15*80.4;
+		this.primaVacacionalExcenta=15*80.04;
 		return this.primaVacacionalExcenta;
 	}
 	public double primaVacacionalGravada(){

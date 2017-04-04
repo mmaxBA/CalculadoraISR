@@ -7,6 +7,6 @@ public class WastePanel extends JPanel{
 	public WastePanel(int x, int y){
 		super();
 		this.setPreferredSize(new Dimension(x,y));
-		this.setBackground(new Color(153,255,255));
+		this.setBackground(Color.WHITE);
 	}
 }

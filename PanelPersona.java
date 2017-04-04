@@ -47,7 +47,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 					lbNivelEdu,
 					lbColegiatura;
 	private VentanaPersona venPersona;
-	//private VentanaISR venISR;
+	//private VentanaISR ventanaISR;
 	private JRadioButton rbSecundaria,
 							rbPrepa,
 							rbPrimaria,
@@ -59,7 +59,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 
 	public PanelPersona(VentanaPersona vp){
 		super();
-		//this.venISR= new VentanaISR();
+		//this.ventanaISR= new VentanaISR();
 		this.venPersona= vp;
 		this.setPreferredSize(new Dimension(900,600));
 		this.setBackground(Color.WHITE);
@@ -288,11 +288,18 @@ public class PanelPersona extends JPanel implements ActionListener {
 							"\nEl pago excedente del limite inferior es de: "+ String.valueOf(this.dedus.pagoExcedenteLimInf())+
 							"\nEl total que debe pagar "+per.getNombre()+" es de: "+ String.valueOf(this.dedus.totalPagar()), "Resultados", 3);
 		}
-		//else if(e.getSource() == this.btRegresar){
-			//this.venISR.setVisible(true);
-			//this.venPersona.setVisible(false);
+		
+		/*else if(e.getSource()==this.btRegresar){
+			this.ventanaISR.setVisibilidad(true);
+			this.venPersona.setVisible(false);
+		}
+		 
+		/* else if(e.getSource() == this.btRegresar){
+			this.venISR.setVisible(true);
+			this.venPersona.setVisible(false);
 
-		//}
+		*/
+		  }
+		 
 	}
 
-}
