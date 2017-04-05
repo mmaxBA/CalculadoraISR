@@ -32,7 +32,7 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 		this.ventanaPer= new VentanaPersona(frame);
 		this.ventanaMulti = new VentanaMulti(frame);
 
-		this.setPreferredSize(new Dimension(1000,400));
+		this.setPreferredSize(new Dimension(900,400));
 		this.setBackground(Color.WHITE);
 		//this.setLayout(null);
 

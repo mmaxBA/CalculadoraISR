@@ -18,6 +18,8 @@ public class VentanaMulti extends JFrame{
 		this.add(wpA,BorderLayout.NORTH);
 		WastePanel wpB = new WastePanel(900,240);
 		this.add(wpB,BorderLayout.SOUTH);
+		this.setResizable(false);
+		
 		
 		this.pack();
 		this.setVisible(this.visVentanaMult);
