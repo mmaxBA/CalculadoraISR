@@ -86,7 +86,7 @@ public class PanelMulti extends JPanel implements ActionListener{
 			BufferedReader bf = new BufferedReader(new FileReader(ruta));
 			//PrintWriter pw = new PrintWriter(new File(destino));
 			PrintWriter pw=new PrintWriter(new FileWriter(destino));
-
+			
 			while((linea=bf.readLine())!=null){
 
 				Persona a = new Persona();

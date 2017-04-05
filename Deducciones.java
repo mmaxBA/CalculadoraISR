@@ -94,6 +94,12 @@ public class Deducciones {
 	}
 	public double deduccionesPermitidas(){
 		this.deduccionesPermitidas=(this.ingresoAnual+this.totalDeduccionesSnR)*0.1;
+		if(this.totalIngresosGravados<this.deduccionesPermitidas){
+			this.deduccionesPermitidas=0;
+		}
+		else{
+		this.deduccionesPermitidas=(this.ingresoAnual+this.totalDeduccionesSnR)*0.1;
+		}
 		return this.deduccionesPermitidas;
 	}
 	public double montoSobreElCualSeCalculaISR(){

@@ -19,7 +19,8 @@ import javax.swing.JTextField;
 public class PanelPersona extends JPanel implements ActionListener {
 
 	private JButton btCalcular,
-	btRegresar;
+	btRegresar,
+	btRestart;
 	private JTextField  tfNombre,
 	tfRfc,
 	tfMensual,
@@ -240,6 +241,14 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.btRegresar.addActionListener(this);
 		this.add(this.btRegresar);
 		 */
+		
+		this.btRestart = new JButton("Restart");
+		this.btRestart.setPreferredSize(new Dimension(225,40));
+		this.btRestart.setBackground(new Color(0,204,255));
+		this.btRestart.setBorderPainted(false);
+		this.btRestart.addActionListener(this);
+		this.add(this.btRestart);
+		
 		this.df = new DecimalFormat("#.00");
 	}
 
@@ -318,6 +327,11 @@ public class PanelPersona extends JPanel implements ActionListener {
 						"\nSu pago excedente del limite inferior es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.pagoExcedenteLimInf())))+
 						"\nSu total a pagar es: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalPagar()))), "Resultados", 3);
 			}
+			
+			else if(e.getSource()==this.btRestart){
+				this.restart();
+			}
+			
 			/*
 			else if(e.getSource()==this.btRegresar){
 				this.ventanaISR.setVisibilidad(true);
@@ -328,7 +342,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 
 		catch(NumberFormatException a){
 			//if(a.getLocalizedMessage()!="null"){
-				JOptionPane.showMessageDialog(null,"Entré a Number. \n Input invalido. Por favor ingrese un número por favor","Warning", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,"Ingrese un número. \n Valor de entrada invalido. Por favor ingrese un número","Error", JOptionPane.ERROR_MESSAGE);
 				//accion();
 				//this.restart();
 				//actionPerformed(e);
