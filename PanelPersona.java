@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,42 +19,42 @@ import javax.swing.JTextField;
 public class PanelPersona extends JPanel implements ActionListener {
 
 	private JButton btCalcular,
-					btRegresar;
+	btRegresar;
 	private JTextField  tfNombre,
-						tfRfc,
-						tfMensual,
-						tfAguinaldo,
-						tfPrimaVac,
-						tfMedico,
-						tfFunerarios,
-						tfSeguro,
-						tfHipoteca,
-						tfDonativos,
-						tfSubCuenta,
-						tfTranspEsc,
-						tfColegiatura;
+	tfRfc,
+	tfMensual,
+	tfAguinaldo,
+	tfPrimaVac,
+	tfMedico,
+	tfFunerarios,
+	tfSeguro,
+	tfHipoteca,
+	tfDonativos,
+	tfSubCuenta,
+	tfTranspEsc,
+	tfColegiatura;
 	private Label lbNombre,
-					lbRfc,
-					lbInstruc,
-					lbMensual,
-					lbAguinaldo,
-					lbPrimaVac,
-					lbMedico,
-					lbFunerarios,
-					lbSeguro,
-					lbHipoteca,
-					lbDonativos,
-					lbSubCuenta,
-					lbTranspEsc,
-					lbNivelEdu,
-					lbColegiatura;
+	lbRfc,
+	lbInstruc,
+	lbMensual,
+	lbAguinaldo,
+	lbPrimaVac,
+	lbMedico,
+	lbFunerarios,
+	lbSeguro,
+	lbHipoteca,
+	lbDonativos,
+	lbSubCuenta,
+	lbTranspEsc,
+	lbNivelEdu,
+	lbColegiatura;
 	private VentanaPersona venPersona;
 	//private VentanaISR ventanaISR;
 	private JRadioButton rbSecundaria,
-							rbPrepa,
-							rbPrimaria,
-							rbPreescolar,
-							rbNinguno;
+	rbPrepa,
+	rbPrimaria,
+	rbPreescolar,
+	rbNinguno;
 	private Persona per;
 	private Deducciones dedus;
 	DecimalFormat df;
@@ -238,69 +239,80 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.btRegresar.setBorderPainted(false);
 		this.btRegresar.addActionListener(this);
 		this.add(this.btRegresar);
-		*/
+		 */
 		this.df = new DecimalFormat("#.00");
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == this.btCalcular){
-			this.per = new Persona();
-			this.per.setNombre(this.tfNombre.getText());
-			this.per.setRfc(this.tfRfc.getText());
-			this.per.setSueldoMensual(Double.parseDouble(df.format(Double.parseDouble(this.tfMensual.getText()))));
-			this.per.setAguinaldo(Double.parseDouble(df.format(Double.parseDouble(this.tfAguinaldo.getText()))));
-			this.per.setAportacionRetiro(Double.parseDouble(df.format(Double.parseDouble(this.tfSubCuenta.getText()))));
-			this.per.setColegiatura(Double.parseDouble(df.format(Double.parseDouble(this.tfColegiatura.getText()))));
-			this.per.setDonativos(Double.parseDouble(df.format(Double.parseDouble(this.tfDonativos.getText()))));
-			this.per.setFunerarios(Double.parseDouble(df.format(Double.parseDouble(this.tfFunerarios.getText()))));
-			this.per.setHipotecarios(Double.parseDouble(df.format(Double.parseDouble(this.tfHipoteca.getText()))));
-			this.per.setMedicos(Double.parseDouble(df.format(Double.parseDouble(this.tfMedico.getText()))));
-			this.per.setPrimaVacacional(Double.parseDouble(df.format(Double.parseDouble(this.tfPrimaVac.getText()))));
-			this.per.setSggm(Double.parseDouble(df.format(Double.parseDouble(this.tfSeguro.getText()))));
-			this.per.setTransporte(Double.parseDouble(df.format(Double.parseDouble(this.tfTranspEsc.getText()))));
-			if(this.rbNinguno.isSelected()){
-				this.per.setNivelEducativo("Ninguno");
-			}
-			else if(this.rbPreescolar.isSelected()){
-				this.per.setNivelEducativo("Preescolar");
-			} 
-			else if(this.rbPrepa.isSelected()){
-				this.per.setNivelEducativo("Bachilerato");
-			}
-			else if(this.rbPrimaria.isSelected()){
-				this.per.setNivelEducativo("Primaria");
-			}
-			else{
-				this.per.setNivelEducativo("Secundaria");
-			}
-			this.dedus = new Deducciones(this.per);
-			JOptionPane.showMessageDialog(null, "El ingreso anual es de "+ String.valueOf(Double.parseDouble(df.format(this.dedus.ingresoAnual())))+ 
-												"\nEl aguinaldo excento es de: " + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoExcento())))+
-												"\nEl aguinaldo gravado es de: " + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoGravado())))+ 
-												"\nLa prima vacacional excenta es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.primaVacacionalGravada())))+
-												"\nEl total de ingresos gravados es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalIngresosGravados())))+
-							"\nEl maximo a deducir de "+ per.getNivelEducativo()+" es de:" + String.valueOf(Double.parseDouble(df.format(this.dedus.maximoDeducirColegiatura())))+
-							"\nEl total de deducciones sin ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalDeduccionesSnR())))+
-							"\nEl total de deducciones permitidas es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.deduccionesPermitidas())))+
-							"\nEl monto sobre el cuál se calcula el ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.montoSobreElCualSeCalculaISR())))+
-							"\nLa cuota fija a pagar es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.cuotaFija())))+
-							"\nEl porcentaje de ISR es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.porcentExedenteLimInf())))+
-							"\nEl limite inferior es de: "+String.valueOf(Double.parseDouble(df.format(this.dedus.LimInf())))+
-							"\nEl pago excedente del limite inferior es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.pagoExcedenteLimInf())))+
-							"\nEl total que debe pagar "+per.getNombre()+" es de: "+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalPagar()))), "Resultados", 3);
+	public void accion(){
+		this.per = new Persona();
+		this.per.setNombre(this.tfNombre.getText());
+		this.per.setRfc(this.tfRfc.getText());
+		this.per.setSueldoMensual(Double.parseDouble(df.format(Double.parseDouble(this.tfMensual.getText()))));
+		this.per.setAguinaldo(Double.parseDouble(df.format(Double.parseDouble(this.tfAguinaldo.getText()))));
+		this.per.setAportacionRetiro(Double.parseDouble(df.format(Double.parseDouble(this.tfSubCuenta.getText()))));
+		this.per.setColegiatura(Double.parseDouble(df.format(Double.parseDouble(this.tfColegiatura.getText()))));
+		this.per.setDonativos(Double.parseDouble(df.format(Double.parseDouble(this.tfDonativos.getText()))));
+		this.per.setFunerarios(Double.parseDouble(df.format(Double.parseDouble(this.tfFunerarios.getText()))));
+		this.per.setHipotecarios(Double.parseDouble(df.format(Double.parseDouble(this.tfHipoteca.getText()))));
+		this.per.setMedicos(Double.parseDouble(df.format(Double.parseDouble(this.tfMedico.getText()))));
+		this.per.setPrimaVacacional(Double.parseDouble(df.format(Double.parseDouble(this.tfPrimaVac.getText()))));
+		this.per.setSggm(Double.parseDouble(df.format(Double.parseDouble(this.tfSeguro.getText()))));
+		this.per.setTransporte(Double.parseDouble(df.format(Double.parseDouble(this.tfTranspEsc.getText()))));
+		if(this.rbNinguno.isSelected()){
+			this.per.setNivelEducativo("Ninguno");
 		}
-		/*
-		else if(e.getSource()==this.btRegresar){
-			this.ventanaISR.setVisibilidad(true);
-			this.venPersona.setVisible(false);
+		else if(this.rbPreescolar.isSelected()){
+			this.per.setNivelEducativo("Preescolar");
+		} 
+		else if(this.rbPrepa.isSelected()){
+			this.per.setNivelEducativo("Bachilerato");
 		}
-		 
-		/* else if(e.getSource() == this.btRegresar){
-			this.venISR.setVisible(true);
-			this.venPersona.setVisible(false);
+		else if(this.rbPrimaria.isSelected()){
+			this.per.setNivelEducativo("Primaria");
+		}
+		else{
+			this.per.setNivelEducativo("Secundaria");
+		}
+		this.dedus = new Deducciones(this.per);
 
-		*/
-		  }
-		 
 	}
+
+	public void actionPerformed(ActionEvent e) {
+
+		try {
+			if(e.getSource() == this.btCalcular){
+				accion();
+				JOptionPane.showMessageDialog(null, " "+per.getNombre()+", su desgloce es el siguiente: "+
+						"\nSu ingreso anual es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.ingresoAnual())))+ 
+						"\nSu aguinaldo excento es de: $" + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoExcento())))+
+						"\nSu aguinaldo gravado es de: $" + String.valueOf(Double.parseDouble(df.format(this.dedus.aguinaldoGravado())))+ 
+						"\nSu prima vacacional excenta es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.primaVacacionalGravada())))+
+						"\nSu total de ingresos gravados es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalIngresosGravados())))+
+						"\nSu maximo a deducir de a cuerdo con el nivel educatico "+ per.getNivelEducativo()+", es de: $" + String.valueOf(Double.parseDouble(df.format(this.dedus.maximoDeducirColegiatura())))+
+						"\nSu total de deducciones sin aporte a retiro es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalDeduccionesSnR())))+
+						"\nSu total de deducciones permitidas es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.deduccionesPermitidas())))+
+						"\nSu monto sobre el cuál se calcula el ISR es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.montoSobreElCualSeCalculaISR())))+
+						"\nSu cuota fija a pagar es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.cuotaFija())))+
+						"\nSu limite inferior es: $"+String.valueOf(Double.parseDouble(df.format(this.dedus.LimInf())))+
+						"\nSu porcentaje excedente del limite inferior es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.porcentExedenteLimInf())))+
+						"\nSu pago excedente del limite inferior es de: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.pagoExcedenteLimInf())))+
+						"\nSu total a pagar es: $"+ String.valueOf(Double.parseDouble(df.format(this.dedus.totalPagar()))), "Resultados", 3);
+			}
+			/*
+			else if(e.getSource()==this.btRegresar){
+				this.ventanaISR.setVisibilidad(true);
+				this.venPersona.setVisible(false);
+			}
+			 */
+		} 
+
+		catch(NumberFormatException a){
+			if(a.getLocalizedMessage()!="null"){
+				JOptionPane.showMessageDialog(null,"Entré a Number. \n Input invalido. Por favor ingrese un número por favor","Warning", JOptionPane.ERROR_MESSAGE);
+				accion();
+			}
+
+		}
+	}
+}
 
