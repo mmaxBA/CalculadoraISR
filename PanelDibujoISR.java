@@ -29,8 +29,8 @@ public class PanelDibujoISR extends JPanel implements ActionListener{
 		this.visVentanaMult=false;
 
 		this.ventanaISR=frame;
-		this.ventanaPer= new VentanaPersona();
-		this.ventanaMulti = new VentanaMulti();
+		this.ventanaPer= new VentanaPersona(frame);
+		this.ventanaMulti = new VentanaMulti(frame);
 
 		this.setPreferredSize(new Dimension(1000,400));
 		this.setBackground(Color.WHITE);

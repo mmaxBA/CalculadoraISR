@@ -50,7 +50,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 	lbNivelEdu,
 	lbColegiatura;
 	private VentanaPersona venPersona;
-	//private VentanaISR ventanaISR;
+	private VentanaISR ventanaISR;
 	private JRadioButton rbSecundaria,
 	rbPrepa,
 	rbPrimaria,
@@ -60,9 +60,9 @@ public class PanelPersona extends JPanel implements ActionListener {
 	private Deducciones dedus;
 	DecimalFormat df;
 
-	public PanelPersona(VentanaPersona vp){
+	public PanelPersona(VentanaPersona vp,VentanaISR frame){
 		super();
-		//this.ventanaISR= new VentanaISR();
+		this.ventanaISR= frame;
 		this.venPersona= vp;
 		this.setPreferredSize(new Dimension(900,600));
 		this.setBackground(Color.WHITE);
@@ -228,23 +228,23 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.add(this.rbSecundaria);
 
 		this.btCalcular = new JButton("Calcular");
-		this.btCalcular.setPreferredSize(new Dimension(225,40));
+		this.btCalcular.setPreferredSize(new Dimension(600,40));
 		this.btCalcular.setBackground(new Color(0,204,255));
 		this.btCalcular.setBorderPainted(false);
 		this.btCalcular.addActionListener(this);
 		this.add(this.btCalcular);
-		/*
+		
 		this.btRegresar = new JButton("Regresar");
-		this.btRegresar.setPreferredSize(new Dimension(225,40));
-		this.btRegresar.setBackground(new Color(0,204,255));
+		this.btRegresar.setPreferredSize(new Dimension(300,40));
+		this.btRegresar.setBackground(new Color(204,255,255));
 		this.btRegresar.setBorderPainted(false);
 		this.btRegresar.addActionListener(this);
 		this.add(this.btRegresar);
-		 */
+		 
 		
 		this.btRestart = new JButton("Restart");
-		this.btRestart.setPreferredSize(new Dimension(225,40));
-		this.btRestart.setBackground(new Color(0,204,255));
+		this.btRestart.setPreferredSize(new Dimension(300,40));
+		this.btRestart.setBackground(new Color(204,255,255));
 		this.btRestart.setBorderPainted(false);
 		this.btRestart.addActionListener(this);
 		this.add(this.btRestart);
@@ -332,12 +332,12 @@ public class PanelPersona extends JPanel implements ActionListener {
 				this.restart();
 			}
 			
-			/*
+			
 			else if(e.getSource()==this.btRegresar){
-				this.ventanaISR.setVisibilidad(true);
+				this.ventanaISR.setVisible(true);
 				this.venPersona.setVisible(false);
 			}
-			 */
+			
 		} 
 
 		catch(NumberFormatException a){

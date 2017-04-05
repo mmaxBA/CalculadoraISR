@@ -22,20 +22,28 @@ import javax.swing.JPanel;
 public class PanelMulti extends JPanel implements ActionListener{
 	private JButton btArchivo,
 	btCalcular,
-	btDestino;
-	private Label lbInstruc;
+	btDestino,
+	btRegresar;
+	private Label lbInstruc,
+	lbIndicaciones;
 	private JFileChooser fcR,
 	fcD;
 	private String linea,
 	archivo,
 	destino;
 
-	private Frame ventanaMulti;
+	//private Frame ventanaMulti;
 	private Deducciones deducir;
 
-	public PanelMulti(Frame vm){
+	private VentanaISR ventanaISR;
+	private VentanaMulti venMulti;
+
+	public PanelMulti(VentanaMulti vm,VentanaISR frame){
 		super();
-		this.ventanaMulti=vm;
+		
+		this.ventanaISR=frame;
+		this.venMulti=vm;
+		
 		this.setPreferredSize(new Dimension(900,400));
 
 		this.setBackground(Color.WHITE);
@@ -52,26 +60,40 @@ public class PanelMulti extends JPanel implements ActionListener{
 		/*this.fc.setPreferredSize(new Dimension(800,300));
 		this.add(this.fc);
 		 */
-		this.btArchivo = new JButton("Seleccionar un archivo");
-		this.btArchivo.setPreferredSize(new Dimension(300,30));
+		this.btArchivo = new JButton("Seleccionar el archivo a leer");
+		this.btArchivo.setPreferredSize(new Dimension(700,30));
 		this.btArchivo.setBackground(new Color(204,255,255));
 		this.btArchivo.setBorderPainted(false);
 		this.btArchivo.addActionListener(this);
 		this.add(this.btArchivo);
 
-		this.btDestino = new JButton("Seleccionar un archivo");
-		this.btDestino.setPreferredSize(new Dimension(300,30));
+		this.lbIndicaciones= new Label("Asegurate de escribir la extención .csv después del nombre del archivo",Label.CENTER);
+		this.lbIndicaciones.setFont(new Font("Arial",Font.ITALIC,14));
+		this.lbIndicaciones.setForeground(Color.BLACK);
+		this.lbIndicaciones.setBackground(Color.WHITE);
+		this.lbIndicaciones.setPreferredSize(new Dimension(700,30));
+		this.add(this.lbIndicaciones);
+
+		this.btDestino = new JButton("Destino");
+		this.btDestino.setPreferredSize(new Dimension(700,30));
 		this.btDestino.setBackground(new Color(204,255,255));
 		this.btDestino.setBorderPainted(false);
 		this.btDestino.addActionListener(this);
 		this.add(this.btDestino);
-
+		
 		this.btCalcular = new JButton("Calcular");
-		this.btCalcular.setPreferredSize(new Dimension(600,40));
+		this.btCalcular.setPreferredSize(new Dimension(700,40));
 		this.btCalcular.setBackground(new Color(0,204,255));
 		this.btCalcular.setBorderPainted(false);
 		this.btCalcular.addActionListener(this);
 		this.add(this.btCalcular);
+		
+		this.btRegresar = new JButton("Regresar");
+		this.btRegresar.setPreferredSize(new Dimension(700,40));
+		this.btRegresar.setBackground(new Color(204,204,204));
+		this.btRegresar.setBorderPainted(false);
+		this.btRegresar.addActionListener(this);
+		this.add(this.btRegresar);
 
 		this.linea = "";
 		this.archivo="";
@@ -127,15 +149,6 @@ public class PanelMulti extends JPanel implements ActionListener{
 		}
 	}
 
-	public void Escritor(String destino,Persona a){
-		/*try {
-
-
-		} catch (IOException e) {
-			System.out.println("Error al intentar escribir el archivo"+e);
-		}
-		 */
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -158,5 +171,10 @@ public class PanelMulti extends JPanel implements ActionListener{
 			lector(archivo,destino);  
 		}
 
+		else if(e.getSource()==this.btRegresar){
+			this.ventanaISR.setVisible(true);
+			this.venMulti.setVisible(false);
+		}
+		
 	}
 }

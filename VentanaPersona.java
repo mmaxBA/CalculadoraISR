@@ -8,12 +8,12 @@ public class VentanaPersona extends JFrame {
 	
 	private boolean visVentanaPer;
 	
-	public VentanaPersona(){
+	public VentanaPersona(VentanaISR frame){
 		super("Calculo Individual");
 		this.visVentanaPer=false;
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		PanelPersona pd = new PanelPersona(this);
+		PanelPersona pd = new PanelPersona(this,frame);
 		this.add(pd, BorderLayout.CENTER);
 		WastePanel wpA = new WastePanel(900,50);
 		this.add(wpA,BorderLayout.NORTH);
