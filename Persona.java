@@ -44,30 +44,6 @@ public class Persona {
 		this.colegiatura = 0;
 	}
 
-/*	public void lector(){
-		int i=0;
-		try {
-			BufferedReader bf = new BufferedReader(new FileReader(ruta));
-			while((linea=bf.readLine())!=null){
-				texto += linea+"\n";
-				i++;
-			}
-			this.persona=new Persona[i];
-			for(int e=0; e<i;e++){
-				this.persona[e]={};
-			}
-			System.out.println(texto);
-			bf.close();
-		} 
-		catch (FileNotFoundException e) {
-			System.out.println("Archivo no encontrado"+e);
-			e.printStackTrace();
-		} 
-		catch (IOException e) {
-			System.out.println("Error al intentar leer el archivo"+e);
-		}
-	}
-*/
 	public String getNombre() {
 		return this.nombre;
 	}

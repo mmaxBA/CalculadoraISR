@@ -19,11 +19,14 @@ public class Deducciones {
 
 	public Deducciones(Persona a){
 		this.a=a;
-		
 	}
 
+	
 	public double ingresoAnual(){
 		this.ingresoAnual=this.a.getSueldoMensual()*12;
+		//if(this.ingresoAnual<0){
+			
+		//}
 		return  this.ingresoAnual;
 	}
 	public double aguinaldoExcento(){

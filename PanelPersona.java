@@ -243,8 +243,26 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.df = new DecimalFormat("#.00");
 	}
 
-	public void accion(){
+	public void restart(){
+		this.tfNombre.setText("");
+		this.tfRfc.setText("");
+		this.tfMensual.setText("");
+		this.tfAguinaldo.setText("");
+		this.tfPrimaVac.setText("");
+		this.tfMedico.setText("");
+		this.tfFunerarios.setText("");
+		this.tfSeguro.setText("");
+		this.tfHipoteca.setText("");
+		this.tfDonativos.setText("");
+		this.tfSubCuenta.setText("");
+		this.tfTranspEsc.setText("");
+		this.tfColegiatura.setText("");
+	}
+	
+	public void accion() throws  NumberFormatException{ 
+		
 		this.per = new Persona();
+		
 		this.per.setNombre(this.tfNombre.getText());
 		this.per.setRfc(this.tfRfc.getText());
 		this.per.setSueldoMensual(Double.parseDouble(df.format(Double.parseDouble(this.tfMensual.getText()))));
@@ -258,6 +276,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 		this.per.setPrimaVacacional(Double.parseDouble(df.format(Double.parseDouble(this.tfPrimaVac.getText()))));
 		this.per.setSggm(Double.parseDouble(df.format(Double.parseDouble(this.tfSeguro.getText()))));
 		this.per.setTransporte(Double.parseDouble(df.format(Double.parseDouble(this.tfTranspEsc.getText()))));
+		
 		if(this.rbNinguno.isSelected()){
 			this.per.setNivelEducativo("Ninguno");
 		}
@@ -274,6 +293,7 @@ public class PanelPersona extends JPanel implements ActionListener {
 			this.per.setNivelEducativo("Secundaria");
 		}
 		this.dedus = new Deducciones(this.per);
+
 
 	}
 
@@ -307,10 +327,12 @@ public class PanelPersona extends JPanel implements ActionListener {
 		} 
 
 		catch(NumberFormatException a){
-			if(a.getLocalizedMessage()!="null"){
+			//if(a.getLocalizedMessage()!="null"){
 				JOptionPane.showMessageDialog(null,"Entré a Number. \n Input invalido. Por favor ingrese un número por favor","Warning", JOptionPane.ERROR_MESSAGE);
-				accion();
-			}
+				//accion();
+				//this.restart();
+				//actionPerformed(e);
+			//}
 
 		}
 	}
